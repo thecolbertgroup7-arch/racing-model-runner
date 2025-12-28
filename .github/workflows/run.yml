@@ -8,7 +8,7 @@ on:
         required: true
         default: "FG"
       pdf_path:
-        description: "PDF filename (uploaded separately)"
+        description: "PDF filename"
         required: true
         default: "card.pdf"
 
@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Set up Python
@@ -25,6 +25,6 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Run model
+      - name: Run Colbert Racing Model
         run: |
           python run_colbert_model.py --pdf ${{ inputs.pdf_path }} --track ${{ inputs.track }}
