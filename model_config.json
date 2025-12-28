@@ -1,0 +1,18 @@
+{
+  "default_track": "FG",
+  "supported_tracks": ["FG", "TAM", "TP", "KEE", "SAR"],
+  "model_version": "1.0",
+  "probability_floor": 0.02,
+  "overlay_threshold": 1.15,
+  "fib_weights": {
+    "speed": 0.34,
+    "pace": 0.26,
+    "class": 0.20,
+    "trainer": 0.20
+  },
+  "trainer_intent_multipliers": {
+    "hot": 1.15,
+    "neutral": 1.00,
+    "cold": 0.90
+  }
+}
