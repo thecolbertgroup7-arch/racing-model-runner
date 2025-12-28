@@ -1,0 +1,30 @@
+name: Run Racing Model
+
+on:
+  workflow_dispatch:
+    inputs:
+      track:
+        description: "Track code (FG, TAM, TP, KEE, SAR)"
+        required: true
+        default: "FG"
+      pdf_path:
+        description: "PDF filename (uploaded separately)"
+        required: true
+        default: "card.pdf"
+
+jobs:
+  run-model:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run model
+        run: |
+          python run_colbert_model.py --pdf ${{ inputs.pdf_path }} --track ${{ inputs.track }}
