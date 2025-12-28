@@ -28,3 +28,8 @@ jobs:
       - name: Run Colbert Racing Model
         run: |
           python run_colbert_model.py --pdf ${{ inputs.pdf_path }} --track ${{ inputs.track }}
+      - name: Upload output artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: model-output
+          path: output.json
