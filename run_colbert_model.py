@@ -1,7 +1,11 @@
 import sys
 import json
 from datetime import datetime
-
+from relationships import (
+    load_json_cache, make_id, lookup_rel,
+    relationship_boost, apply_boosts,
+    get_track_weights, fair_odds_from_prob
+)
 def run_model(pdf_path, track_code):
     # Placeholder engine — structure is correct
     # This is where BRIS parsing + Fib logic plugs in later
@@ -14,6 +18,8 @@ def run_model(pdf_path, track_code):
         "races": []
     }
 
+    tj_cache = load_json_cache("tj_cache.json")
+    to_cache = load_json_cache("to_cache.json")
     # Example output stub (keeps workflow alive)
     for race in range(1, 11):
         runner = {
