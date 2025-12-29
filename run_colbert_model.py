@@ -63,8 +63,8 @@ def run_model(pdf_path, track_code):
         "race": race,
         "runners": [runner],
         "top_pick": runner["horse"],
-        "win_probability": runner["base_win_prob"],
-        "fair_odds": "9/2",
+        "win_probability": runner["win_prob_post_rel"],
+        "fair_odds": fair_odds_from_prob(runner["win_prob_post_rel"]),
         "overlay": "YES"
     })
 
