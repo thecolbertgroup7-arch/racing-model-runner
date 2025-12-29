@@ -16,7 +16,7 @@ def run_model(pdf_path, track_code):
 
     # Example output stub (keeps workflow alive)
     for race in range(1, 11):
-    runner = {
+        runner = {
         "horse": f"Horse_{race}_A",
         "trainer_name": "UNKNOWN",
         "jockey_name": "UNKNOWN",
