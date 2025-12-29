@@ -16,25 +16,27 @@ def run_model(pdf_path, track_code):
 
     # Example output stub (keeps workflow alive)
     for race in range(1, 11):
-        runner = {
-    "horse": f"Horse_{race}_A",
-    "trainer_name": "UNKNOWN",
-    "jockey_name": "UNKNOWN",
-    "owner_name": "UNKNOWN",
-    "base_win_prob": round(0.18, 2)
-}
+    runner = {
+        "horse": f"Horse_{race}_A",
+        "trainer_name": "UNKNOWN",
+        "jockey_name": "UNKNOWN",
+        "owner_name": "UNKNOWN",
+        "base_win_prob": round(0.18, 2)
+    }
 
-results["races"].append({
-    "race": race,
-    "runners": [runner],
-    "top_pick": runner["horse"],
-    "win_probability": runner["base_win_prob"],
-    "fair_odds": "9/2",
-    "overlay": "YES"
-})
-   
+    results["races"].append({
+        "race": race,
+        "runners": [runner],
+        "top_pick": runner["horse"],
+        "win_probability": runner["base_win_prob"],
+        "fair_odds": "9/2",
+        "overlay": "YES"
+    })
+
     with open("output.json", "w") as f:
-        json.dump(results, f, indent=2)
+    json.dump(results, f, indent=2)
+
+print("Model run complete")
 
 if __name__ == "__main__":
     pdf = sys.argv[sys.argv.index("--pdf")+1]
