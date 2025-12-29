@@ -32,10 +32,9 @@ results["races"].append({
     "fair_odds": "9/2",
     "overlay": "YES"
 })
+   
     with open("output.json", "w") as f:
-    json.dump(results, f, indent=2)
-
-    print("Model run complete")
+        json.dump(results, f, indent=2)
 
 if __name__ == "__main__":
     pdf = sys.argv[sys.argv.index("--pdf")+1]
